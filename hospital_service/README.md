@@ -44,7 +44,7 @@ Add additional notes about how to deploy this on a live system.
    Use the following command to clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/mrandrej/haventcreatedthisyet.git
+    git clone https://github.com/mrandrej/medheadconsortium.git
     ```
 
 2. **Navigate into the project directory**
@@ -52,7 +52,7 @@ Add additional notes about how to deploy this on a live system.
    Change your current directory to the project's directory:
 
     ```bash
-    cd haventcreatedthisyet
+    cd medheadconsortium
     ```
 
 3. **Build the project with Maven**
