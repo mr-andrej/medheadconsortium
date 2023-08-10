@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS hospital
     number_of_unavailable_beds INT
 );
 
-CREATE TABLE hospital_specializations
+CREATE TABLE IF NOT EXISTS hospital_specializations
 (
     hospital_id     BIGINT,
     specializations VARCHAR(255)
