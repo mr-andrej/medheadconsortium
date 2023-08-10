@@ -30,6 +30,6 @@ public class Patient {
     @Column(name="emergency_contact_number")
     private String emergencyContactNumber;
 
-    @Column(length=2000, name="date_of_birth")
+    @Column(length=2000, name="medical_history")
     private String medicalHistory;
 }
