@@ -17,17 +17,17 @@ CREATE TABLE hospital_specializations
 -- Hospitals
 INSERT INTO hospital (name, location, number_of_all_beds, number_of_available_beds, number_of_unavailable_beds)
 VALUES ('St. Mary Hospital', 'Praed St, Paddington, London', 500, 320, 180),
-('Manchester Royal Infirmary', 'Oxford Rd, Manchester', 600, 420, 180),
-('Queen Elizabeth Hospital', 'Mindelsohn Way, Birmingham', 700, 500, 200),
-('Royal Liverpool Hospital', 'Prescot St, Liverpool', 550, 375, 175),
-('Bristol Royal Infirmary', 'Upper Maudlin St, Bristol', 480, 300, 180);
+       ('Manchester Royal Infirmary', 'Oxford Rd, Manchester', 600, 420, 180),
+       ('Queen Elizabeth Hospital', 'Mindelsohn Way, Birmingham', 700, 500, 200),
+       ('Royal Liverpool Hospital', 'Prescot St, Liverpool', 550, 375, 175),
+       ('Bristol Royal Infirmary', 'Upper Maudlin St, Bristol', 480, 300, 180);
 
 -- Hospital Specializations
--- St. Marys Hospital
-INSERT INTO hospital_specializations (hospital_id, specializations) VALUES
-(1, 'Cardiology'),
-        (1, 'Neurology'),
-        (1, 'Orthopedics');
+-- St. Mary Hospital
+INSERT INTO hospital_specializations (hospital_id, specializations)
+VALUES (1, 'Cardiology'),
+       (1, 'Neurology'),
+       (1, 'Orthopedics');
 
 -- Manchester Royal Infirmary
 INSERT INTO hospital_specializations (hospital_id, specializations)

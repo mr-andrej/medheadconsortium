@@ -22,3 +22,4 @@ VALUES ('John Doe', '1985-06-15', 'Male', '123 Main St, London', '+441234567890'
         'No known medical conditions. Vaccinated for flu in 2022.'),
        ('Charlie Brown', '1995-07-07', 'Male', '202 Oak St, Bristol', '+441234567894', '+449876543214',
         'Allergic to nuts. Had chickenpox in 2005.');
+
