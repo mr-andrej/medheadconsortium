@@ -6,9 +6,9 @@ This repository contains the microservices for the MedHead Consortium project. T
 
 The repository includes the following microservices:
 
-1. **Hospital Microservice**: Manages information about hospitals, including their location, number of beds, and specializations. (60%)
+1. **Hospital Microservice**: Manages information about hospitals, including their location, number of beds, and specializations. (70%)
 
-2. **Patient Microservice**: Manages information about patients. (10%)
+2. **Patient Microservice**: Manages information about patients. (70%)
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Java 17
 - Maven
-- PostgreSQL (for production)
+- H2
 
 ### Installing and Running the Application
 
@@ -54,7 +54,7 @@ These instructions will get you a copy of the project up and running on your loc
     mvn spring-boot:run
     ```
 
-    The application will be accessible at `http://localhost:9000`.
+    The application will be accessible at `http://localhost:900X`. The X depends on the exact service you're running. The hospital service runs at 9000 while the patient service runs at 9001. 
 
 ### Running the tests
 
