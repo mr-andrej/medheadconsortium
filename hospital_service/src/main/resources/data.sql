@@ -1,4 +1,4 @@
-CREATE TABLE hospital
+CREATE TABLE IF NOT EXISTS hospital
 (
     id                         BIGINT PRIMARY KEY AUTO_INCREMENT,
     name                       VARCHAR(255),
