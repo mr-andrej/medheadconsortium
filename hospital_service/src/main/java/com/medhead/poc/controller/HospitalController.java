@@ -50,7 +50,7 @@ public class HospitalController {
         existingHospital.setNumberOfAvailableBeds(hospitalDetails.getNumberOfAvailableBeds());
         existingHospital.setNumberOfUnavailableBeds(hospitalDetails.getNumberOfUnavailableBeds());
         existingHospital.setSpecializations(hospitalDetails.getSpecializations());
-        hospitalService.saveHospital(existingHospital);
+        hospitalService.updateHospital(existingHospital);
         return new ResponseEntity<>(existingHospital, HttpStatus.OK);
     }
 
