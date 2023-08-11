@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/hospitals")
 public class HospitalController {
 
@@ -18,6 +19,7 @@ public class HospitalController {
 
     @Autowired
     public HospitalController(HospitalService hospitalService) {
+
         this.hospitalService = hospitalService;
     }
 
