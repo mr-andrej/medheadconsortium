@@ -43,8 +43,7 @@ Add additional notes about how to deploy this on a live system.
    Use the following command to clone the repository to your local machine:
 
     ```bash
-    git clone git clone https://github.com/mr-andrej/medheadconsortium.git
-
+    git clone https://github.com/mrandrej/medheadconsortium.git
     ```
 
 2. **Navigate into the project directory**
