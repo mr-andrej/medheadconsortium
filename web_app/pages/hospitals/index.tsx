@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 interface Hospital {
     id: number;
@@ -42,7 +42,7 @@ const HospitalList = () => {
                                 <li key={index}>{specialization}</li>
                             ))}
                         </ul>
-                        <br />
+                        <br/>
                     </li>
                 ))}
             </ul>
