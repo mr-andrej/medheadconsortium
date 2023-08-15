@@ -16,7 +16,7 @@ const HospitalList = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:9000/api/hospitals');
+            const response = await fetch('http://localhost:9999/api/hospitals');
             const data = await response.json();
             setHospitals(data);
         };

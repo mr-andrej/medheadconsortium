@@ -38,7 +38,7 @@ const HospitalDetail = () => {
     useEffect(() => {
         if (id) {
             const fetchData = async () => {
-                const response = await fetch(`http://localhost:9000/api/hospitals/${id}`);
+                const response = await fetch(`http://localhost:9999/api/hospitals/${id}`);
                 const data = await response.json();
                 setHospital(data);
             };
@@ -68,7 +68,7 @@ const HospitalDetail = () => {
 
     const deleteHospital = async () => {
         try {
-            const response = await axios.delete(`http://localhost:9000/api/hospitals/${id}`);
+            const response = await axios.delete(`http://localhost:9999/api/hospitals/${id}`);
             if (response.status === 200) {
                 // Redirect to the hospitals list after successful deletion
                 await router.push('/hospitals');
@@ -82,7 +82,7 @@ const HospitalDetail = () => {
 
     const handleSubmit = async () => {
         // Update the hospital data in the backend
-        await fetch(`http://localhost:9000/api/hospitals/${id}`, {
+        await fetch(`http://localhost:9999/api/hospitals/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

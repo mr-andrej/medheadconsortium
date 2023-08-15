@@ -17,7 +17,7 @@ const CreateHospital: React.FC = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:9000/api/hospitals', {
+            await axios.post('http://localhost:9999/api/hospitals', {
                 name,
                 location,
                 number_of_all_beds,
