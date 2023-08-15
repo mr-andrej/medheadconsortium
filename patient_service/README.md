@@ -1,10 +1,10 @@
 # MedHead Consortium Hospital Microservice
 
-This is a Java Spring Boot microservice for managing hospital data for the MedHead Consortium. It provides RESTful APIs for creating, retrieving, updating, and deleting hospital data.
+This is a Java Spring Boot microservice for managing patient data for the MedHead Consortium. It provides RESTful APIs for creating, retrieving, updating, and deleting hospital data.
 
 ## Features
 
-- CRUD operations for hospital data
+- CRUD operations for patient data
 - H2 in-memory database for development and testing
 - Spring Security for authentication and authorization
 - Exception handling
@@ -31,7 +31,6 @@ Add additional notes about how to deploy this on a live system.
 - [Spring Boot](https://spring.io/projects/spring-boot) - The web framework used
 - [Maven](https://maven.apache.org/) - Dependency Management
 - [H2 Database](https://www.h2database.com/) - In-memory database
-- [PostgreSQL](https://www.postgresql.org/) - Open-Source relational database
 
 ## Authors
 

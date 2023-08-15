@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, {useState, useEffect} from 'react';
+import {useRouter} from 'next/router';
+import axios from "axios";
 
 interface Hospital {
     id: number;
@@ -31,7 +32,7 @@ const existingSpecializations = [
 
 const HospitalDetail = () => {
     const router = useRouter();
-    const { id } = router.query;
+    const {id} = router.query;
     const [hospital, setHospital] = useState<Hospital | null>(null);
 
     useEffect(() => {
@@ -65,6 +66,20 @@ const HospitalDetail = () => {
         });
     };
 
+    const deleteHospital = async () => {
+        try {
+            const response = await axios.delete(`http://localhost:9000/api/hospitals/${id}`);
+            if (response.status === 200) {
+                // Redirect to the hospitals list after successful deletion
+                await router.push('/hospitals');
+            } else {
+                console.error('Error deleting the hospital:', response);
+            }
+        } catch (error) {
+            console.error('There was an error deleting the hospital:', error);
+        }
+    };
+
     const handleSubmit = async () => {
         // Update the hospital data in the backend
         await fetch(`http://localhost:9000/api/hospitals/${id}`, {
@@ -88,7 +103,7 @@ const HospitalDetail = () => {
                 <input
                     type="text"
                     value={hospital.name}
-                    onChange={(e) => setHospital({ ...hospital, name: e.target.value })}
+                    onChange={(e) => setHospital({...hospital, name: e.target.value})}
                 />
             </div>
             <div>
@@ -96,7 +111,7 @@ const HospitalDetail = () => {
                 <input
                     type="text"
                     value={hospital.location}
-                    onChange={(e) => setHospital({ ...hospital, location: e.target.value })}
+                    onChange={(e) => setHospital({...hospital, location: e.target.value})}
                 />
             </div>
             <div>
@@ -104,7 +119,7 @@ const HospitalDetail = () => {
                 <input
                     type="number"
                     value={hospital.numberOfAllBeds}
-                    onChange={(e) => setHospital({ ...hospital, numberOfAllBeds: Number(e.target.value) })}
+                    onChange={(e) => setHospital({...hospital, numberOfAllBeds: Number(e.target.value)})}
                 />
             </div>
             <div>
@@ -112,7 +127,7 @@ const HospitalDetail = () => {
                 <input
                     type="number"
                     value={hospital.numberOfAvailableBeds}
-                    onChange={(e) => setHospital({ ...hospital, numberOfAvailableBeds: Number(e.target.value) })}
+                    onChange={(e) => setHospital({...hospital, numberOfAvailableBeds: Number(e.target.value)})}
                 />
             </div>
             <div>
@@ -120,7 +135,7 @@ const HospitalDetail = () => {
                 <input
                     type="number"
                     value={hospital.numberOfUnavailableBeds}
-                    onChange={(e) => setHospital({ ...hospital, numberOfUnavailableBeds: Number(e.target.value) })}
+                    onChange={(e) => setHospital({...hospital, numberOfUnavailableBeds: Number(e.target.value)})}
                 />
             </div>
             <div>
@@ -139,6 +154,10 @@ const HospitalDetail = () => {
                 ))}
             </div>
             <button onClick={handleSubmit}>Update Hospital</button>
+            <button onClick={deleteHospital} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Delete Hospital
+            </button>
+
         </div>
     );
 };

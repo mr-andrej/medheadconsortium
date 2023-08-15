@@ -1,8 +1,8 @@
 // pages/hospitals/create.tsx
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
 const CreateHospital: React.FC = () => {
     const [name, setName] = useState('');
