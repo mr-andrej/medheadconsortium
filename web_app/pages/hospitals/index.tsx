@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
+import SockJS from 'sockjs-client';
+import { Client } from 'stompjs';
 
 interface Hospital {
     id: number;
