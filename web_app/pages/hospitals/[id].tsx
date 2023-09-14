@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {useRouter} from 'next/router';
 import axios from "axios";
+import { Client } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
 
 interface Hospital {
     id: number;
@@ -45,6 +47,33 @@ const HospitalDetail = () => {
 
             fetchData();
         }
+
+        // WebSocket setup
+        const socket = new SockJS('http://localhost:9999/ws');
+        const stompClient = new Client({
+            webSocketFactory: () => socket,
+            onConnect: () => {
+                console.log('Connected to WebSocket');
+
+                // Here you can set up any subscriptions if needed
+                // Example:
+                // stompClient.subscribe('/topic/someTopic', (message) => {
+                //     if (message.body) {
+                //         const updatedData = JSON.parse(message.body);
+                //         // Do something with the updatedData
+                //     }
+                // });
+            }
+        });
+        stompClient.activate();
+
+        return () => {
+            if (stompClient && stompClient.connected) {
+                stompClient.deactivate();
+                console.log('Disconnected from WebSocket');
+            }
+        };
+
     }, [id]);
 
     const handleSpecializationChange = (e: React.ChangeEvent<HTMLInputElement>) => {

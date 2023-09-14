@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import { Client } from 'stompjs';
 
 interface Hospital {
     id: number;
@@ -15,6 +15,7 @@ interface Hospital {
 
 const HospitalList = () => {
     const [hospitals, setHospitals] = useState<Hospital[]>([]);
+    const stompClient = new Client();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,6 +25,23 @@ const HospitalList = () => {
         };
 
         fetchData();
+
+        // WebSocket setup
+        stompClient.webSocketFactory = () => new SockJS('http://localhost:9999/ws');
+        stompClient.onConnect = () => {
+            console.log('Connected');
+            stompClient.subscribe('/topic/hospitals', (messageOutput) => {
+                if (messageOutput.body) {
+                    const newHospitals = JSON.parse(messageOutput.body);
+                    setHospitals(newHospitals);
+                }
+            });
+        };
+        stompClient.activate();
+
+        return () => {
+            stompClient.deactivate();
+        };
     }, []);
 
     return (
@@ -44,7 +62,7 @@ const HospitalList = () => {
                                 <li key={index}>{specialization}</li>
                             ))}
                         </ul>
-                        <br/>
+                        <br />
                     </li>
                 ))}
             </ul>
