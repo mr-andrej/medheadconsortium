@@ -45,7 +45,7 @@ const HospitalDetail = () => {
                 setHospital(data);
             };
 
-            fetchData();
+            fetchData().then(r => console.log("fetchData() has been called"));
         }
 
         // WebSocket setup

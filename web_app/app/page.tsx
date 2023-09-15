@@ -36,6 +36,11 @@ export default function Home() {
                 <Link href="/responders">
                     <span style={linkStyle}>Emergency Responders</span>
                 </Link>
+
+                <Link href="/chat">
+                    <span style={linkStyle}>Go to chat</span>
+                </Link>
+
             </div>
         </div>
     );

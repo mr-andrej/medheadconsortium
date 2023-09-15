@@ -17,10 +17,14 @@ public class SecurityConfiguration {
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                 ).authorizeHttpRequests(auth -> auth
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/api/**")).permitAll()
+                ).authorizeHttpRequests(auth -> auth
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/ws/**")).permitAll()
                 )
                 .headers(AbstractHttpConfigurer::disable)
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")));
+                        .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**"))
+                        .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/api/**"))
+                        .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/ws/**")).disable());
         return http.build();
     }
 

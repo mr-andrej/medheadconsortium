@@ -16,23 +16,16 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
+        // Use the /topic prefix for outgoing WebSocket communication
         config.enableSimpleBroker("/topic");
+
+        // Use the /app prefix for others
         config.setApplicationDestinationPrefixes("/app");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws")
-                .setAllowedOrigins("*") // Allow this origin for WebSocket
-                .withSockJS();
-    }
-
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(myHandler(), "/my-websocket-endpoint");
-    }
-
-    @Bean
-    public WebSocketHandler myHandler() {
-        return new MyWebSocketHandler();
+        // Register the /ws endpoint, enabling SockJS fallback options
+        registry.addEndpoint("/ws").withSockJS();
     }
 }

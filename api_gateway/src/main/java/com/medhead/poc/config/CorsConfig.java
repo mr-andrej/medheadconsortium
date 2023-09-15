@@ -17,10 +17,22 @@ public class CorsConfig {
         corsConfig.addAllowedOrigin("http://localhost:3000");
 
         // Specify allowed methods
-        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
         // Specify allowed headers
-        corsConfig.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization", "Accept"));
+        corsConfig.setAllowedHeaders(Arrays.asList(
+                "Content-Type",
+                "Authorization",
+                "Accept",
+                "Origin",
+                "Sec-WebSocket-Extensions",
+                "Sec-WebSocket-Key",
+                "Sec-WebSocket-Version",
+                "Upgrade",
+                "Connection",
+                "Access-Control-Request-Headers",
+                "Access-Control-Request-Method"
+        ));
 
         corsConfig.setAllowCredentials(true);
 
