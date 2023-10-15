@@ -1,5 +1,6 @@
 import Talk from 'talkjs';
 import { useEffect, useState, useRef } from 'react';
+import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material';
 
 function MyChatComponent() {
     const chatboxEl = useRef();
@@ -28,13 +29,13 @@ function MyChatComponent() {
 
             const session = new Talk.Session({
                 appId: 'tRoZypch',
-                me: emergencyResponder,
+                me: hospital,
             });
 
-            const conversationId = Talk.oneOnOneId(hospital, emergencyResponder);
+            const conversationId = Talk.oneOnOneId(emergencyResponder, hospital);
             const conversation = session.getOrCreateConversation(conversationId);
-            conversation.setParticipant(hospital);
             conversation.setParticipant(emergencyResponder);
+            conversation.setParticipant(hospital);
 
             const chatbox = session.createChatbox();
             chatbox.select(conversation);
@@ -46,7 +47,38 @@ function MyChatComponent() {
     }, [talkLoaded]);
 
     // @ts-ignore
-    return <div ref={chatboxEl} style={{ height: '500px'}}/>;
+    return (
+        <Container>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography
+                        variant="h5"
+                        style={{
+                            flexGrow: 1,
+                            fontWeight: 'bold',
+                            letterSpacing: '1.5px',
+                            color: '#fff',
+                            marginRight: 'auto'
+                        }}
+                    >
+                        MedHead
+                    </Typography>
+                    {/* Add other navigation buttons here if needed */}
+                </Toolbar>
+            </AppBar>
+            <Box
+                ref={chatboxEl}
+                sx={{
+                    height: '500px',
+                    mt: 3,
+                    p: 2,
+                    border: '1px solid #e0e0e0',
+                    boxShadow: 2,
+                    bgcolor: 'background.paper'
+                }}
+            />
+        </Container>
+    );
 }
 
 export default MyChatComponent;

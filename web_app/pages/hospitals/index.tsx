@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
+import { AppBar, Toolbar, Typography, Button, Container, List, ListItem, ListItemText, Divider } from '@mui/material';
 
 interface Hospital {
     id: number;
@@ -45,28 +46,57 @@ const HospitalList = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Hospitals</h1>
-            <ul>
+        <Container>
+            <AppBar position="static">
+                <Toolbar>
+                    <Link href="/">
+                        <Typography
+                            variant="h5"
+                            style={{
+                                flexGrow: 1,
+                                fontWeight: 'bold',
+                                letterSpacing: '1.5px',
+                                color: '#fff',
+                                marginRight: 'auto',
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            MedHead
+                        </Typography>
+                    </Link>
+                    <Button color="inherit" component={Link} href="/hospitals" sx={{ mx: 1 }}>Hospitals</Button>
+                    <Button color="inherit" component={Link} href="/patients" sx={{ mx: 1 }}>Patients</Button>
+                    <Button color="inherit" component={Link} href="/responders" sx={{ mx: 1 }}>Emergency Responders</Button>
+                    <Button color="inherit" component={Link} href="/chat/hospital" sx={{ mx: 1 }}>Talk to hospital (ER)</Button>
+                    <Button color="inherit" component={Link} href="/chat/er" sx={{ mx: 1 }}>Talk to ER (Hospital)</Button>
+                </Toolbar>
+            </AppBar>
+            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px' }}>
+                Hospitals
+            </Typography>
+            <List>
                 {hospitals.map((hospital) => (
-                    <li key={hospital.id}>
-                        <Link href={`/hospitals/${hospital.id}`}>
-                            {hospital.name} - {hospital.location}
-                        </Link>
-                        <p>Total Beds: {hospital.numberOfAllBeds}</p>
-                        <p>Available Beds: {hospital.numberOfAvailableBeds}</p>
-                        <p>Unavailable Beds: {hospital.numberOfUnavailableBeds}</p>
-                        <p>Specializations:</p>
-                        <ul>
+                    <div key={hospital.id}>
+                        <ListItem button component={Link} href={`/hospitals/${hospital.id}`}>
+                            <ListItemText primary={`${hospital.name} - ${hospital.location}`} />
+                        </ListItem>
+                        <ListItemText secondary={`Total Beds: ${hospital.numberOfAllBeds}`} />
+                        <ListItemText secondary={`Available Beds: ${hospital.numberOfAvailableBeds}`} />
+                        <ListItemText secondary={`Unavailable Beds: ${hospital.numberOfUnavailableBeds}`} />
+                        <ListItemText secondary="Specializations:" />
+                        <List dense>
                             {hospital.specializations.map((specialization, index) => (
-                                <li key={index}>{specialization}</li>
+                                <ListItem key={index}>
+                                    <ListItemText primary={specialization} />
+                                </ListItem>
                             ))}
-                        </ul>
-                        <br />
-                    </li>
+                        </List>
+                        <Divider />
+                    </div>
                 ))}
-            </ul>
-        </div>
+            </List>
+        </Container>
     );
 };
 

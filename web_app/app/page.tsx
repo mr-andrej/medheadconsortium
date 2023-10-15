@@ -37,8 +37,12 @@ export default function Home() {
                     <span style={linkStyle}>Emergency Responders</span>
                 </Link>
 
-                <Link href="/chat">
-                    <span style={linkStyle}>Go to chat</span>
+                <Link href="/chat/hospital">
+                    <span style={linkStyle}>Talk to hospital (ER)</span>
+                </Link>
+
+                <Link href="/chat/er">
+                    <span style={linkStyle}>Talk to ER (Hospital)</span>
                 </Link>
 
             </div>
