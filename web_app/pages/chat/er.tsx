@@ -1,6 +1,6 @@
 import Talk from 'talkjs';
-import { useEffect, useState, useRef } from 'react';
-import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material';
+import {useEffect, useRef, useState} from 'react';
+import {Box, Container} from '@mui/material';
 
 import "../../public/style.css";
 import Header from '@/components/Header';
@@ -52,7 +52,7 @@ function MyChatComponent() {
     // @ts-ignore
     return (
         <Container className="glass">
-            <Header />
+            <Header/>
             <Box
                 ref={chatboxEl}
                 sx={{

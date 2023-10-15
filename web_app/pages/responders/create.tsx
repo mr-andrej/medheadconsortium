@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, {useState} from 'react';
+import {useRouter} from 'next/router';
 
 interface EmergencyResponder {
     name: string;
@@ -50,7 +50,7 @@ const CreateResponder = () => {
                 <input
                     type="text"
                     value={responder.name}
-                    onChange={(e) => setResponder({ ...responder, name: e.target.value })}
+                    onChange={(e) => setResponder({...responder, name: e.target.value})}
                 />
             </div>
             <div>
@@ -58,7 +58,7 @@ const CreateResponder = () => {
                 <input
                     type="text"
                     value={responder.organization}
-                    onChange={(e) => setResponder({ ...responder, organization: e.target.value })}
+                    onChange={(e) => setResponder({...responder, organization: e.target.value})}
                 />
             </div>
             <div>
@@ -66,7 +66,7 @@ const CreateResponder = () => {
                 <input
                     type="text"
                     value={responder.contactNumber}
-                    onChange={(e) => setResponder({ ...responder, contactNumber: e.target.value })}
+                    onChange={(e) => setResponder({...responder, contactNumber: e.target.value})}
                 />
             </div>
             <div>
@@ -74,7 +74,7 @@ const CreateResponder = () => {
                 <input
                     type="text"
                     value={responder.specialization}
-                    onChange={(e) => setResponder({ ...responder, specialization: e.target.value })}
+                    onChange={(e) => setResponder({...responder, specialization: e.target.value})}
                 />
             </div>
             <div>
@@ -82,7 +82,7 @@ const CreateResponder = () => {
                 <input
                     type="text"
                     value={responder.location}
-                    onChange={(e) => setResponder({ ...responder, location: e.target.value })}
+                    onChange={(e) => setResponder({...responder, location: e.target.value})}
                 />
             </div>
             <div>
@@ -90,7 +90,7 @@ const CreateResponder = () => {
                 <textarea
                     rows={5}
                     value={responder.notes}
-                    onChange={(e) => setResponder({ ...responder, notes: e.target.value })}
+                    onChange={(e) => setResponder({...responder, notes: e.target.value})}
                 />
             </div>
             <button onClick={handleSubmit}>Create Responder</button>

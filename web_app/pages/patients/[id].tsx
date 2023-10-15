@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, {useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 import axios from 'axios';
 
-import { Container, Button } from '@mui/material';
+import {Button, Container} from '@mui/material';
 import Header from "@/components/Header";
 
 interface Patient {
@@ -18,7 +18,7 @@ interface Patient {
 
 const PatientDetail = () => {
     const router = useRouter();
-    const { id } = router.query;
+    const {id} = router.query;
     const [patient, setPatient] = useState<Patient | null>(null);
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const PatientDetail = () => {
 
     return (
         <Container className="glass">
-            <Header />
+            <Header/>
             <h1>Edit Patient: {patient.fullName}</h1>
             <div className="formGroup">
                 <label>Name:</label>
@@ -72,7 +72,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="text"
                     value={patient.fullName}
-                    onChange={(e) => setPatient({ ...patient, fullName: e.target.value })}
+                    onChange={(e) => setPatient({...patient, fullName: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -81,7 +81,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="date"
                     value={patient.dateOfBirth}
-                    onChange={(e) => setPatient({ ...patient, dateOfBirth: e.target.value })}
+                    onChange={(e) => setPatient({...patient, dateOfBirth: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -90,7 +90,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="text"
                     value={patient.gender}
-                    onChange={(e) => setPatient({ ...patient, gender: e.target.value })}
+                    onChange={(e) => setPatient({...patient, gender: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -99,7 +99,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="text"
                     value={patient.address}
-                    onChange={(e) => setPatient({ ...patient, address: e.target.value })}
+                    onChange={(e) => setPatient({...patient, address: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -108,7 +108,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="tel"
                     value={patient.patientContactNumber}
-                    onChange={(e) => setPatient({ ...patient, patientContactNumber: e.target.value })}
+                    onChange={(e) => setPatient({...patient, patientContactNumber: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -117,7 +117,7 @@ const PatientDetail = () => {
                     className="glassInput"
                     type="tel"
                     value={patient.emergencyContactNumber}
-                    onChange={(e) => setPatient({ ...patient, emergencyContactNumber: e.target.value })}
+                    onChange={(e) => setPatient({...patient, emergencyContactNumber: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -126,15 +126,15 @@ const PatientDetail = () => {
                     className="glassTextarea"
                     rows={5}
                     value={patient.medicalHistory}
-                    onChange={(e) => setPatient({ ...patient, medicalHistory: e.target.value })}
+                    onChange={(e) => setPatient({...patient, medicalHistory: e.target.value})}
                 />
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={handleSubmit}>
                     <div className="glassButton">Update Patient</div>
                 </Button>
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={deletePatient}>
                     <div className="glassButton bg-red">Delete Patient</div>
                 </Button>

@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
 import axios from "axios";
-import { Client } from '@stomp/stompjs';
+import {Client} from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import {Button, Container } from '@mui/material';
+import {Button, Container} from '@mui/material';
 import Header from '@/components/Header';
 
 interface Hospital {
@@ -128,7 +128,7 @@ const HospitalDetail = () => {
 
     return (
         <Container className="glass">
-            <Header />
+            <Header/>
             <h1>Edit Hospital: {hospital.name}</h1>
             <div className="formGroup">
                 <label>Name:</label>
@@ -191,12 +191,12 @@ const HospitalDetail = () => {
                     </div>
                 ))}
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={handleSubmit}>
                     <div className="glassButton">Update Hospital</div>
                 </Button>
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={deleteHospital}>
                     <div className="glassButton bg-red">Delete Hospital</div>
                 </Button>

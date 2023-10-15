@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return (
         <AppBar position="sticky" className={"glassHeader"}>
             <Toolbar>
-                <Link href="/" style={{ textDecoration: 'none' }}>
+                <Link href="/" style={{textDecoration: 'none'}}>
                     <Typography
                         variant="h5"
                         style={{
@@ -27,11 +27,12 @@ const Header: React.FC = () => {
                         MedHead
                     </Typography>
                 </Link>
-                <Button color="inherit" component={Link} href="/hospitals" sx={{ mx: 1 }}>Hospitals</Button>
-                <Button color="inherit" component={Link} href="/patients" sx={{ mx: 1 }}>Patients</Button>
-                <Button color="inherit" component={Link} href="/responders" sx={{ mx: 1 }}>Emergency Responders</Button>
-                <Button color="inherit" component={Link} href="/chat/hospital" sx={{ mx: 1 }}>Talk to hospital (ER)</Button>
-                <Button color="inherit" component={Link} href="/chat/er" sx={{ mx: 1 }}>Talk to ER (Hospital)</Button>
+                <Button color="inherit" component={Link} href="/hospitals" sx={{mx: 1}}>Hospitals</Button>
+                <Button color="inherit" component={Link} href="/patients" sx={{mx: 1}}>Patients</Button>
+                <Button color="inherit" component={Link} href="/responders" sx={{mx: 1}}>Emergency Responders</Button>
+                <Button color="inherit" component={Link} href="/chat/hospital" sx={{mx: 1}}>Talk to hospital
+                    (ER)</Button>
+                <Button color="inherit" component={Link} href="/chat/er" sx={{mx: 1}}>Talk to ER (Hospital)</Button>
             </Toolbar>
         </AppBar>
     );

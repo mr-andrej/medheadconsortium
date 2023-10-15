@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Typography, Container, Button } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {Button, Container, Typography} from '@mui/material';
 import Header from "@/components/Header";
 import '../../public/style.css';
 
@@ -29,8 +28,9 @@ const EmergencyResponderList = () => {
 
     return (
         <Container className={"glass"}>
-            <Header />
-            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)' }}>
+            <Header/>
+            <Typography variant="h4" component="h1" gutterBottom
+                        style={{marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)'}}>
                 Emergency Responders
             </Typography>
             {responders.map((responder) => (
@@ -58,7 +58,7 @@ const EmergencyResponderList = () => {
                         <div className="tableCell">Notes</div>
                         <div className="tableCell">{responder.notes}</div>
                     </div>
-                    <div style={{ padding: '15px', textAlign: 'right' }}>
+                    <div style={{padding: '15px', textAlign: 'right'}}>
                         <Button href={`/responders/${responder.id}`}>
                             <div className="editButton">Edit</div>
                         </Button>

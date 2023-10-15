@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import React, {useEffect, useState} from 'react';
 import Header from "@/components/Header";
-import {Typography, Container, Button} from '@mui/material';
+import {Button, Container, Typography} from '@mui/material';
 import '../../public/style.css';
 
 interface Patient {
@@ -37,8 +36,9 @@ const PatientList = () => {
 
     return (
         <Container className={"glass"}>
-            <Header />
-            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)' }}>
+            <Header/>
+            <Typography variant="h4" component="h1" gutterBottom
+                        style={{marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)'}}>
                 Patients
             </Typography>
             {patients.map((patient) => (
@@ -70,7 +70,7 @@ const PatientList = () => {
                         <div className="tableCell">Medical History</div>
                         <div className="tableCell">{patient.medicalHistory}</div>
                     </div>
-                    <div style={{ padding: '15px', textAlign: 'right' }}>
+                    <div style={{padding: '15px', textAlign: 'right'}}>
                         <Button href={`/patients/${patient.id}`}>
                             <div className="editButton">Edit</div>
                         </Button>
