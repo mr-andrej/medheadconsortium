@@ -15,7 +15,7 @@ function PatientList() {
     useEffect(() => {
         async function fetchPatients() {
             try {
-                const response = await axios.get<Patient[]>('http://localhost:9001/api/patients');
+                const response = await axios.get<Patient[]>('http://localhost:9999/api/patients');
                 setPatients(response.data);
             } catch (error) {
                 console.error("Error fetching patients:", error);

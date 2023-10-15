@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api/responders")
 public class EmergencyResponderController {
 

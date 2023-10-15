@@ -47,5 +47,6 @@ public class HospitalService {
 
         hospitalRepository.deleteById(id);
     }
+
 }
 
