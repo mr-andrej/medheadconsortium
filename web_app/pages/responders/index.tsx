@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Typography, Container, Button } from '@mui/material';
+import Header from "@/components/Header";
+import '../../public/style.css';
 
 interface EmergencyResponder {
     id: number;
@@ -25,24 +28,44 @@ const EmergencyResponderList = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Emergency Responders</h1>
-            <ul>
-                {responders.map((responder) => (
-                    <li key={responder.id}>
-                        <Link href={`/emergencyResponders/${responder.id}`}>
-                            {responder.name}
-                        </Link>
-                        <p>Organization: {responder.organization}</p>
-                        <p>Contact Number: {responder.contactNumber}</p>
-                        <p>Specialization: {responder.specialization}</p>
-                        <p>Location: {responder.location}</p>
-                        <p>Notes: {responder.notes}</p>
-                        <br />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <Container className={"glass"}>
+            <Header />
+            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)' }}>
+                Emergency Responders
+            </Typography>
+            {responders.map((responder) => (
+                <div key={responder.id} className="glassTable">
+                    <div className="tableRow header">
+                        <div className="tableCell">{responder.name}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Organization</div>
+                        <div className="tableCell">{responder.organization}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Contact Number</div>
+                        <div className="tableCell">{responder.contactNumber}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Specialization</div>
+                        <div className="tableCell">{responder.specialization}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Location</div>
+                        <div className="tableCell">{responder.location}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Notes</div>
+                        <div className="tableCell">{responder.notes}</div>
+                    </div>
+                    <div style={{ padding: '15px', textAlign: 'right' }}>
+                        <Button href={`/responders/${responder.id}`}>
+                            <div className="editButton">Edit</div>
+                        </Button>
+                    </div>
+                </div>
+            ))}
+        </Container>
     );
 };
 

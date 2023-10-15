@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import {Button, Container} from '@mui/material';
+import Header from '@/components/Header';
 
 interface EmergencyResponder {
     id: number;
@@ -59,61 +61,74 @@ const EmergencyResponderDetail = () => {
     if (!responder) return <div>Loading...</div>;
 
     return (
-        <div>
+        <Container className="glass">
+            <Header />
             <h1>Edit Responder: {responder.name}</h1>
-            <div>
+            <div className="formGroup">
                 <label>Name:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={responder.name}
                     onChange={(e) => setResponder({ ...responder, name: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Organization:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={responder.organization}
                     onChange={(e) => setResponder({ ...responder, organization: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Contact Number:</label>
                 <input
-                    type="text"
+                    className="glassInput"
+                    type="tel"
                     value={responder.contactNumber}
                     onChange={(e) => setResponder({ ...responder, contactNumber: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Specialization:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={responder.specialization}
                     onChange={(e) => setResponder({ ...responder, specialization: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Location:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={responder.location}
                     onChange={(e) => setResponder({ ...responder, location: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Notes:</label>
                 <textarea
+                    className="glassTextarea"
                     rows={5}
                     value={responder.notes}
                     onChange={(e) => setResponder({ ...responder, notes: e.target.value })}
                 />
             </div>
-            <button onClick={handleSubmit}>Update Responder</button>
-            <button onClick={deleteResponder} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                Delete Responder
-            </button>
-        </div>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={handleSubmit}>
+                    <div className="glassButton">Update Responder</div>
+                </Button>
+            </div>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={deleteResponder}>
+                    <div className="glassButton bg-red">Delete Responder</div>
+                </Button>
+            </div>
+        </Container>
     );
 };
 

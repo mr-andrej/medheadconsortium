@@ -1,7 +1,7 @@
-import Image from 'next/image'
+import '../public/style.css';
 import React from "react";
-import PatientList from "@/components/PatientList";
 import Link from "next/link";
+import { Container } from '@mui/material';
 
 export default function Home() {
 
@@ -20,32 +20,31 @@ export default function Home() {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '100px' }}>
+        <Container className="glass" style={{ textAlign: 'center', marginTop: '100px' }}>
             <h1>Welcome to the Health System Portal</h1>
             <p>Select a service to proceed:</p>
 
             <div style={{ marginTop: '40px' }}>
                 <Link href="/hospitals">
-                    <span style={linkStyle}>Hospitals</span>
+                    <div className="glassButton" style={linkStyle}>Hospitals</div>
                 </Link>
 
                 <Link href="/patients">
-                    <span style={linkStyle}>Patients</span>
+                    <div className="glassButton" style={linkStyle}>Patients</div>
                 </Link>
 
                 <Link href="/responders">
-                    <span style={linkStyle}>Emergency Responders</span>
+                    <div className="glassButton" style={linkStyle}>Emergency Responders</div>
                 </Link>
 
                 <Link href="/chat/hospital">
-                    <span style={linkStyle}>Talk to hospital (ER)</span>
+                    <div className="glassButton" style={linkStyle}>Talk to hospital (ER)</div>
                 </Link>
 
                 <Link href="/chat/er">
-                    <span style={linkStyle}>Talk to ER (Hospital)</span>
+                    <div className="glassButton" style={linkStyle}>Talk to ER (Hospital)</div>
                 </Link>
-
             </div>
-        </div>
+        </Container>
     );
 }

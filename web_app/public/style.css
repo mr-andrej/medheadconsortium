@@ -1,0 +1,129 @@
+body {
+    background-image: url('../public/back.png');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+}
+
+.glass {
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    padding: 20px;
+}
+
+.glassHeader {
+    color: black !important;
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.glassTable {
+     margin-bottom: 20px;
+     border-radius: 15px;
+     overflow: hidden;
+     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+.tableRow {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tableRow:last-child {
+    border-bottom: none;
+}
+
+.tableCell {
+    flex: 1;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.header .tableCell {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.tableRow .tableCell ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.tableRow .tableCell li {
+    margin-bottom: 5px;
+}
+
+.editButton {
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.editButton:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+}
+
+.formGroup {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.glassInput, .glassTextarea {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.glassTextarea {
+    resize: vertical;
+}
+
+.glassButton {
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.glassButton:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.glassButton.bg-red {
+    padding: 10px 20px;
+    color: rgba(255, 0, 0, 0.65);
+    font-weight: bold;
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.glassButton.bg-red:hover {
+    background-color: rgba(255, 0, 0, 0.45);
+}

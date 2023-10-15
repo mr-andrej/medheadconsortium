@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import { AppBar, Toolbar, Typography, Button, Container, List, ListItem, ListItemText, Divider } from '@mui/material';
+import {Typography, Container, Button} from '@mui/material';
+import Header from "@/components/Header";
+import '../../public/style.css';
 
 interface Hospital {
     id: number;
@@ -46,56 +48,49 @@ const HospitalList = () => {
     }, []);
 
     return (
-        <Container>
-            <AppBar position="static">
-                <Toolbar>
-                    <Link href="/">
-                        <Typography
-                            variant="h5"
-                            style={{
-                                flexGrow: 1,
-                                fontWeight: 'bold',
-                                letterSpacing: '1.5px',
-                                color: '#fff',
-                                marginRight: 'auto',
-                                cursor: 'pointer',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            MedHead
-                        </Typography>
-                    </Link>
-                    <Button color="inherit" component={Link} href="/hospitals" sx={{ mx: 1 }}>Hospitals</Button>
-                    <Button color="inherit" component={Link} href="/patients" sx={{ mx: 1 }}>Patients</Button>
-                    <Button color="inherit" component={Link} href="/responders" sx={{ mx: 1 }}>Emergency Responders</Button>
-                    <Button color="inherit" component={Link} href="/chat/hospital" sx={{ mx: 1 }}>Talk to hospital (ER)</Button>
-                    <Button color="inherit" component={Link} href="/chat/er" sx={{ mx: 1 }}>Talk to ER (Hospital)</Button>
-                </Toolbar>
-            </AppBar>
-            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px' }}>
+        <Container className={"glass"}>
+            <Header />
+            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)' }}>
                 Hospitals
             </Typography>
-            <List>
-                {hospitals.map((hospital) => (
-                    <div key={hospital.id}>
-                        <ListItem button component={Link} href={`/hospitals/${hospital.id}`}>
-                            <ListItemText primary={`${hospital.name} - ${hospital.location}`} />
-                        </ListItem>
-                        <ListItemText secondary={`Total Beds: ${hospital.numberOfAllBeds}`} />
-                        <ListItemText secondary={`Available Beds: ${hospital.numberOfAvailableBeds}`} />
-                        <ListItemText secondary={`Unavailable Beds: ${hospital.numberOfUnavailableBeds}`} />
-                        <ListItemText secondary="Specializations:" />
-                        <List dense>
-                            {hospital.specializations.map((specialization, index) => (
-                                <ListItem key={index}>
-                                    <ListItemText primary={specialization} />
-                                </ListItem>
-                            ))}
-                        </List>
-                        <Divider />
+            {hospitals.map((hospital) => (
+                <div key={hospital.id} className="glassTable">
+                    <div className="tableRow header">
+                        <div className="tableCell">{hospital.name}</div>
                     </div>
-                ))}
-            </List>
+                    <div className="tableRow">
+                        <div className="tableCell">Location</div>
+                        <div className="tableCell">{hospital.location}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Total Beds</div>
+                        <div className="tableCell">{hospital.numberOfAllBeds}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Available Beds</div>
+                        <div className="tableCell">{hospital.numberOfAvailableBeds}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Unavailable Beds</div>
+                        <div className="tableCell">{hospital.numberOfUnavailableBeds}</div>
+                    </div>
+                    <div className="tableRow">
+                        <div className="tableCell">Specializations</div>
+                        <div className="tableCell">
+                            <ul>
+                                {hospital.specializations.map((specialization, index) => (
+                                    <li key={index}>{specialization}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div style={{ padding: '15px', textAlign: 'right' }}>
+                        <Button href={`/hospitals/${hospital.id}`}>
+                            <div className="editButton">Edit</div>
+                        </Button>
+                    </div>
+                </div>
+            ))}
         </Container>
     );
 };

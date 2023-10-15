@@ -3,6 +3,8 @@ import {useRouter} from 'next/router';
 import axios from "axios";
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
+import {Button, Container } from '@mui/material';
+import Header from '@/components/Header';
 
 interface Hospital {
     id: number;
@@ -125,49 +127,55 @@ const HospitalDetail = () => {
     if (!hospital) return <div>Loading...</div>;
 
     return (
-        <div>
+        <Container className="glass">
+            <Header />
             <h1>Edit Hospital: {hospital.name}</h1>
-            <div>
+            <div className="formGroup">
                 <label>Name:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={hospital.name}
                     onChange={(e) => setHospital({...hospital, name: e.target.value})}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Location:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={hospital.location}
                     onChange={(e) => setHospital({...hospital, location: e.target.value})}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Total Beds:</label>
                 <input
+                    className="glassInput"
                     type="number"
                     value={hospital.numberOfAllBeds}
                     onChange={(e) => setHospital({...hospital, numberOfAllBeds: Number(e.target.value)})}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Available Beds:</label>
                 <input
+                    className="glassInput"
                     type="number"
                     value={hospital.numberOfAvailableBeds}
                     onChange={(e) => setHospital({...hospital, numberOfAvailableBeds: Number(e.target.value)})}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Unavailable Beds:</label>
                 <input
+                    className="glassInput"
                     type="number"
                     value={hospital.numberOfUnavailableBeds}
                     onChange={(e) => setHospital({...hospital, numberOfUnavailableBeds: Number(e.target.value)})}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <h3>Specializations:</h3>
                 {existingSpecializations.map((specialization) => (
                     <div key={specialization}>
@@ -175,6 +183,7 @@ const HospitalDetail = () => {
                             type="checkbox"
                             id={specialization}
                             value={specialization}
+                            className="glassCheckbox"
                             checked={hospital.specializations.includes(specialization)}
                             onChange={handleSpecializationChange}
                         />
@@ -182,12 +191,18 @@ const HospitalDetail = () => {
                     </div>
                 ))}
             </div>
-            <button onClick={handleSubmit}>Update Hospital</button>
-            <button onClick={deleteHospital} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                Delete Hospital
-            </button>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={handleSubmit}>
+                    <div className="glassButton">Update Hospital</div>
+                </Button>
+            </div>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={deleteHospital}>
+                    <div className="glassButton bg-red">Delete Hospital</div>
+                </Button>
+            </div>
+        </Container>
 
-        </div>
     );
 };
 
