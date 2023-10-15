@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material';
 
+import "../../public/style.css";
+import Header from '@/components/Header';
 
 function MyChatComponent() {
     const chatboxEl = useRef();
@@ -67,37 +69,14 @@ function MyChatComponent() {
 
     // @ts-ignore
     return (
-        <Container>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography
-                        variant="h5"
-                        style={{
-                            flexGrow: 1,
-                            fontWeight: 'bold',
-                            letterSpacing: '1.5px',
-                            color: '#fff',
-                            marginRight: 'auto'
-                        }}
-                    >
-                        MedHead
-                    </Typography>
-                    <Button color="inherit" component={Link} href="/hospitals" sx={{ mx: 1 }}>Hospitals</Button>
-                    <Button color="inherit" component={Link} href="/patients" sx={{ mx: 1 }}>Patients</Button>
-                    <Button color="inherit" component={Link} href="/responders" sx={{ mx: 1 }}>Emergency Responders</Button>
-                    <Button color="inherit" component={Link} href="/chat/hospital" sx={{ mx: 1 }}>Talk to hospital (ER)</Button>
-                    <Button color="inherit" component={Link} href="/chat/er" sx={{ mx: 1 }}>Talk to ER (Hospital)</Button>
-                </Toolbar>
-            </AppBar>
+        <Container className="glass">
+            <Header />
             <Box
                 ref={chatboxEl}
                 sx={{
                     height: '500px',
                     mt: 3,
                     p: 2,
-                    border: '1px solid #e0e0e0',
-                    boxShadow: 2,
-                    bgcolor: 'background.paper'
                 }}
             />
         </Container>

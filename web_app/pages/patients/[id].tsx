@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
+import { Container, Button } from '@mui/material';
+import Header from "@/components/Header";
+
 interface Patient {
     id: number;
     fullName: string;
@@ -60,69 +63,83 @@ const PatientDetail = () => {
     if (!patient) return <div>Loading...</div>;
 
     return (
-        <div>
+        <Container className="glass">
+            <Header />
             <h1>Edit Patient: {patient.fullName}</h1>
-            <div>
+            <div className="formGroup">
                 <label>Name:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={patient.fullName}
                     onChange={(e) => setPatient({ ...patient, fullName: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Date of Birth:</label>
                 <input
+                    className="glassInput"
                     type="date"
                     value={patient.dateOfBirth}
                     onChange={(e) => setPatient({ ...patient, dateOfBirth: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Gender:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={patient.gender}
                     onChange={(e) => setPatient({ ...patient, gender: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Address:</label>
                 <input
+                    className="glassInput"
                     type="text"
                     value={patient.address}
                     onChange={(e) => setPatient({ ...patient, address: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Contact Number:</label>
                 <input
+                    className="glassInput"
                     type="tel"
                     value={patient.patientContactNumber}
                     onChange={(e) => setPatient({ ...patient, patientContactNumber: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Emergency Contact:</label>
                 <input
+                    className="glassInput"
                     type="tel"
                     value={patient.emergencyContactNumber}
                     onChange={(e) => setPatient({ ...patient, emergencyContactNumber: e.target.value })}
                 />
             </div>
-            <div>
+            <div className="formGroup">
                 <label>Medical History:</label>
                 <textarea
+                    className="glassTextarea"
                     rows={5}
                     value={patient.medicalHistory}
                     onChange={(e) => setPatient({ ...patient, medicalHistory: e.target.value })}
                 />
             </div>
-            <button onClick={handleSubmit}>Update Patient</button>
-            <button onClick={deletePatient} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                Delete Patient
-            </button>
-        </div>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={handleSubmit}>
+                    <div className="glassButton">Update Patient</div>
+                </Button>
+            </div>
+            <div style={{ padding: '15px', textAlign: 'right' }}>
+                <Button onClick={deletePatient}>
+                    <div className="glassButton bg-red">Delete Patient</div>
+                </Button>
+            </div>
+        </Container>
     );
 };
 

@@ -1,6 +1,9 @@
 import Talk from 'talkjs';
 import { useEffect, useState, useRef } from 'react';
-import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material';
+
+import "../../public/style.css";
+import Header from '@/components/Header';
 
 function MyChatComponent() {
     const chatboxEl = useRef();
@@ -48,33 +51,14 @@ function MyChatComponent() {
 
     // @ts-ignore
     return (
-        <Container>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography
-                        variant="h5"
-                        style={{
-                            flexGrow: 1,
-                            fontWeight: 'bold',
-                            letterSpacing: '1.5px',
-                            color: '#fff',
-                            marginRight: 'auto'
-                        }}
-                    >
-                        MedHead
-                    </Typography>
-                    {/* Add other navigation buttons here if needed */}
-                </Toolbar>
-            </AppBar>
+        <Container className="glass">
+            <Header />
             <Box
                 ref={chatboxEl}
                 sx={{
                     height: '500px',
                     mt: 3,
                     p: 2,
-                    border: '1px solid #e0e0e0',
-                    boxShadow: 2,
-                    bgcolor: 'background.paper'
                 }}
             />
         </Container>
