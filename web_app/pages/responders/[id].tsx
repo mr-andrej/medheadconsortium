@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, {useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 import axios from 'axios';
 import {Button, Container} from '@mui/material';
 import Header from '@/components/Header';
@@ -16,7 +16,7 @@ interface EmergencyResponder {
 
 const EmergencyResponderDetail = () => {
     const router = useRouter();
-    const { id } = router.query;
+    const {id} = router.query;
     const [responder, setResponder] = useState<EmergencyResponder | null>(null);
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const EmergencyResponderDetail = () => {
 
     return (
         <Container className="glass">
-            <Header />
+            <Header/>
             <h1>Edit Responder: {responder.name}</h1>
             <div className="formGroup">
                 <label>Name:</label>
@@ -70,7 +70,7 @@ const EmergencyResponderDetail = () => {
                     className="glassInput"
                     type="text"
                     value={responder.name}
-                    onChange={(e) => setResponder({ ...responder, name: e.target.value })}
+                    onChange={(e) => setResponder({...responder, name: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -79,7 +79,7 @@ const EmergencyResponderDetail = () => {
                     className="glassInput"
                     type="text"
                     value={responder.organization}
-                    onChange={(e) => setResponder({ ...responder, organization: e.target.value })}
+                    onChange={(e) => setResponder({...responder, organization: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -88,7 +88,7 @@ const EmergencyResponderDetail = () => {
                     className="glassInput"
                     type="tel"
                     value={responder.contactNumber}
-                    onChange={(e) => setResponder({ ...responder, contactNumber: e.target.value })}
+                    onChange={(e) => setResponder({...responder, contactNumber: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -97,7 +97,7 @@ const EmergencyResponderDetail = () => {
                     className="glassInput"
                     type="text"
                     value={responder.specialization}
-                    onChange={(e) => setResponder({ ...responder, specialization: e.target.value })}
+                    onChange={(e) => setResponder({...responder, specialization: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -106,7 +106,7 @@ const EmergencyResponderDetail = () => {
                     className="glassInput"
                     type="text"
                     value={responder.location}
-                    onChange={(e) => setResponder({ ...responder, location: e.target.value })}
+                    onChange={(e) => setResponder({...responder, location: e.target.value})}
                 />
             </div>
             <div className="formGroup">
@@ -115,15 +115,15 @@ const EmergencyResponderDetail = () => {
                     className="glassTextarea"
                     rows={5}
                     value={responder.notes}
-                    onChange={(e) => setResponder({ ...responder, notes: e.target.value })}
+                    onChange={(e) => setResponder({...responder, notes: e.target.value})}
                 />
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={handleSubmit}>
                     <div className="glassButton">Update Responder</div>
                 </Button>
             </div>
-            <div style={{ padding: '15px', textAlign: 'right' }}>
+            <div style={{padding: '15px', textAlign: 'right'}}>
                 <Button onClick={deleteResponder}>
                     <div className="glassButton bg-red">Delete Responder</div>
                 </Button>

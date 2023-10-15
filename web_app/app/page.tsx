@@ -1,7 +1,7 @@
 import '../public/style.css';
 import React from "react";
 import Link from "next/link";
-import { Container } from '@mui/material';
+import {Container} from '@mui/material';
 
 export default function Home() {
 
@@ -20,11 +20,11 @@ export default function Home() {
     };
 
     return (
-        <Container className="glass" style={{ textAlign: 'center', marginTop: '100px' }}>
+        <Container className="glass" style={{textAlign: 'center', marginTop: '100px'}}>
             <h1>Welcome to the Health System Portal</h1>
             <p>Select a service to proceed:</p>
 
-            <div style={{ marginTop: '40px' }}>
+            <div style={{marginTop: '40px'}}>
                 <Link href="/hospitals">
                     <div className="glassButton" style={linkStyle}>Hospitals</div>
                 </Link>

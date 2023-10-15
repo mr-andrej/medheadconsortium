@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, {useState} from 'react';
+import {useRouter} from 'next/router';
 
 interface Patient {
     fullName: string;
@@ -45,7 +45,7 @@ const CreatePatient = () => {
                 <input
                     type="text"
                     value={patient.fullName}
-                    onChange={(e) => setPatient({ ...patient, fullName: e.target.value })}
+                    onChange={(e) => setPatient({...patient, fullName: e.target.value})}
                 />
             </div>
             <div>
@@ -53,7 +53,7 @@ const CreatePatient = () => {
                 <input
                     type="date"
                     value={patient.dateOfBirth}
-                    onChange={(e) => setPatient({ ...patient, dateOfBirth: e.target.value })}
+                    onChange={(e) => setPatient({...patient, dateOfBirth: e.target.value})}
                 />
             </div>
             <div>
@@ -61,7 +61,7 @@ const CreatePatient = () => {
                 <input
                     type="text"
                     value={patient.gender}
-                    onChange={(e) => setPatient({ ...patient, gender: e.target.value })}
+                    onChange={(e) => setPatient({...patient, gender: e.target.value})}
                 />
             </div>
             <div>
@@ -69,7 +69,7 @@ const CreatePatient = () => {
                 <input
                     type="text"
                     value={patient.address}
-                    onChange={(e) => setPatient({ ...patient, address: e.target.value })}
+                    onChange={(e) => setPatient({...patient, address: e.target.value})}
                 />
             </div>
             <div>
@@ -77,7 +77,7 @@ const CreatePatient = () => {
                 <input
                     type="tel"
                     value={patient.patientContactNumber}
-                    onChange={(e) => setPatient({ ...patient, patientContactNumber: e.target.value })}
+                    onChange={(e) => setPatient({...patient, patientContactNumber: e.target.value})}
                 />
             </div>
             <div>
@@ -85,7 +85,7 @@ const CreatePatient = () => {
                 <input
                     type="tel"
                     value={patient.emergencyContactNumber}
-                    onChange={(e) => setPatient({ ...patient, emergencyContactNumber: e.target.value })}
+                    onChange={(e) => setPatient({...patient, emergencyContactNumber: e.target.value})}
                 />
             </div>
             <div>
@@ -93,7 +93,7 @@ const CreatePatient = () => {
                 <textarea
                     rows={5}
                     value={patient.medicalHistory}
-                    onChange={(e) => setPatient({ ...patient, medicalHistory: e.target.value })}
+                    onChange={(e) => setPatient({...patient, medicalHistory: e.target.value})}
                 />
             </div>
             <button onClick={handleSubmit}>Create Patient</button>

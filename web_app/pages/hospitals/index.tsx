@@ -1,8 +1,7 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { Client } from '@stomp/stompjs';
+import React, {useEffect, useState} from 'react';
+import {Client} from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import {Typography, Container, Button} from '@mui/material';
+import {Button, Container, Typography} from '@mui/material';
 import Header from "@/components/Header";
 import '../../public/style.css';
 
@@ -49,8 +48,9 @@ const HospitalList = () => {
 
     return (
         <Container className={"glass"}>
-            <Header />
-            <Typography variant="h4" component="h1" gutterBottom style={{ marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)' }}>
+            <Header/>
+            <Typography variant="h4" component="h1" gutterBottom
+                        style={{marginTop: '20px', color: 'rgba(0, 0, 0, 0.7)'}}>
                 Hospitals
             </Typography>
             {hospitals.map((hospital) => (
@@ -84,7 +84,7 @@ const HospitalList = () => {
                             </ul>
                         </div>
                     </div>
-                    <div style={{ padding: '15px', textAlign: 'right' }}>
+                    <div style={{padding: '15px', textAlign: 'right'}}>
                         <Button href={`/hospitals/${hospital.id}`}>
                             <div className="editButton">Edit</div>
                         </Button>
