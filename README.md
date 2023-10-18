@@ -6,13 +6,13 @@ This repository contains the microservices for the MedHead Consortium project. T
 
 The repository includes the following microservices:
 
-1. **Hospital Microservice**: Manages information about hospitals, including their location, number of beds, and specializations. (80%)
+1. **Hospital Microservice**: Manages information about hospitals, including their location, number of beds, and specializations. (100%)
 
-2. **Emergency Responder Microservice**: Manages information about emergency responders, including their location and specializations. (80%)
+2. **Emergency Responder Microservice**: Manages information about emergency responders, including their location and specializations. (100%)
 
-3. **Patient Microservice**: Manages information about patients. (80%)
+3. **Patient Microservice**: Manages information about patients. (100%)
 
-4. **Web Application**: Allows the user to interact with the microservices. (20%)
+4. **Web Application**: Allows the user to interact with the microservices. (90%)
 
 ## Getting Started
 
