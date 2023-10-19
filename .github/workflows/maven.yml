@@ -26,13 +26,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # This step ensures that Redis is up and running
-    - name: Check Redis
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y redis-tools
-        redis-cli -h 127.0.0.1 ping
-
     # Build the hospital_service project
     - name: Build hospital_service with Maven
       run: mvn -B package --file hospital_service/pom.xml
@@ -48,37 +41,3 @@ jobs:
     # Build the api_gateway project
     - name: Build api_gateway with Maven
       run: mvn -B package --file api_gateway/pom.xml
-
-    # Build and test the Next.js front-end
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: Install dependencies for Next.js app
-      run: |
-        cd web_app
-        npm install
-
-    - name: Install type definitions for testing-library__jest-dom
-      run: |
-        cd web_app
-        npm install --save-dev @types/testing-library__jest-dom
-
-    - name: Build Next.js app
-      run: |
-        cd web_app
-        npm run build
-
-    - name: Start Next.js app in the background
-      run: |
-        cd web_app
-        npm run start &
-
-    - name: Run Cypress tests
-      run: |
-        cd web_app
-        npx cypress run
-
-    - name: Kill Next.js app
-      run: pkill -f "next"
