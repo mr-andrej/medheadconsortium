@@ -60,6 +60,11 @@ jobs:
         cd web_app
         npm install
 
+    - name: Install type definitions for testing-library__jest-dom
+      run: |
+        cd web_app
+        npm install --save-dev @types/testing-library__jest-dom
+
     - name: Build Next.js app
       run: |
         cd web_app
