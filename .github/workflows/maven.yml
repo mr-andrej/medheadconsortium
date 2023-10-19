@@ -34,3 +34,11 @@ jobs:
     # Build the patient_service project
     - name: Build patient_service with Maven
       run: mvn -B package --file patient_service/pom.xml
+
+    # Build the emergency_responder project
+    - name: Build emergency_responder_service with Maven
+      run: mvn -B package --file emergency_responder_service/pom.xml
+
+    # Build the api_gateway project
+    - name: Build api_gateway with Maven
+      run: mvn -B package --file api_gateway/pom.xml
