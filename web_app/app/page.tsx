@@ -20,6 +20,7 @@ export default function Home() {
     };
 
     return (
+
         <Container className="glass" style={{textAlign: 'center', marginTop: '100px'}}>
             <h1>Welcome to the Health System Portal</h1>
             <p>Select a service to proceed:</p>

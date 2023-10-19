@@ -23,4 +23,9 @@ public class RedisMessagePublisher implements MessagePublisher {
     public void publish(String message) {
         redisTemplate.convertAndSend(topic.getTopic(), message);
     }
+
+    public void publish(String chatRoomId, String message) {
+        redisTemplate.convertAndSend(chatRoomId, message);
+    }
+
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import PatientList from './index'
+import Header from './Header'
 
-describe('<PatientList />', () => {
+describe('<Header />', () => {
   it('renders', () => {
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<PatientList />)
+    cy.mount(<Header />)
   })
 })

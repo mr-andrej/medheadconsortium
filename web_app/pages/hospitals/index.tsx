@@ -28,21 +28,7 @@ const HospitalList = () => {
 
         fetchData();
 
-        // WebSocket setup
-        stompClient.webSocketFactory = () => new SockJS('http://localhost:9999/ws');
-        stompClient.onConnect = () => {
-            console.log('Connected');
-            stompClient.subscribe('/topic/hospitals', (messageOutput) => {
-                if (messageOutput.body) {
-                    const newHospitals = JSON.parse(messageOutput.body);
-                    setHospitals(newHospitals);
-                }
-            });
-        };
-        stompClient.activate();
-
         return () => {
-            stompClient.deactivate();
         };
     }, []);
 
