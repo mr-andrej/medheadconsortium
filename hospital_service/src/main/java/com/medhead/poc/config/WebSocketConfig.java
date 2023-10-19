@@ -17,7 +17,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // Use the /topic prefix for outgoing WebSocket communication
-        config.enableSimpleBroker("/topic");
+        config.enableSimpleBroker("/topic/");
 
         // Use the /app prefix for others
         config.setApplicationDestinationPrefixes("/app");
@@ -26,6 +26,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Register the /ws endpoint, enabling SockJS fallback options
-        registry.addEndpoint("/ws").withSockJS();
+        registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS(); // WebSocket endpoint
     }
 }
