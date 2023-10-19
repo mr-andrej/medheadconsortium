@@ -28,7 +28,10 @@ jobs:
 
     # This step ensures that Redis is up and running
     - name: Check Redis
-      run: redis-cli ping
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y redis-tools
+        redis-cli -h 127.0.0.1 ping
 
     # Build the hospital_service project
     - name: Build hospital_service with Maven
