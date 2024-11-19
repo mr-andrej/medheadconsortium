@@ -1,8 +1,6 @@
 # MedHead Consortium Platform 🏥
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/mr-andrej/medheadconsortium)
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-[![Coverage](https://img.shields.io/badge/coverage-87%25-green.svg)](https://github.com/mr-andrej/medheadconsortium)
 
 > A next-generation healthcare platform built on microservices architecture, designed to revolutionize patient care through real-time operations and responsive service delivery.
 
@@ -24,7 +22,7 @@ The MedHead Platform consists of the following microservices:
 | 🏥 Hospital Service | ✅ 100% | Manages hospital resources and bed allocation | 9000 |
 | 🚑 Emergency Responder | ✅ 100% | Handles emergency response coordination | 9002 |
 | 👤 Patient Service | ✅ 100% | Manages patient records and history | 9001 |
-| 🖥️ Web Application | ⏳ 90% | User interface for platform interaction | 9003 |
+| 🖥️ Web Application | ✅ 100% | User interface for platform interaction | 9003 |
 
 ## 🚀 Getting Started
 
